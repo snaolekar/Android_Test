@@ -4,13 +4,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    private TextView theTextView ;
+    private Button btn_yes,  btn_no ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        theTextView = (TextView) findViewById(R.id.textView);
+        btn_yes = (Button) findViewById(R.id.btn_yes);
+        btn_yes = (Button) findViewById(R.id.btn_no);
     }
 
     @Override
@@ -34,4 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+     public void showToaste(View view) {
+         String message = "Hello you pressed on" + String.valueOf(((Button) view).getText());
+         Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+     }
 }
